@@ -2,10 +2,7 @@ import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
 
-import { SearchInput } from './components/SearchInput';
-import { Table } from './components/Table/';
-import { NavigationBar } from './components/NavigationBar';
-import { AddButton } from './components/AddButton';
+import { AddButton, SearchInput, Table, NavigationBar } from './components';
 
 function App() {
     const store = useSelector(state => state.data);
