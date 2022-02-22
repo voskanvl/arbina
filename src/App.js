@@ -1,26 +1,25 @@
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import { AddButton, SearchInput, Table, NavigationBar } from './components';
 
 function App() {
     const store = useSelector(state => state.data);
     const dispatch = useDispatch();
-    const ref = useRef(null);
     const [filtredStore, setFiltredValue] = useState(store);
+    const [value, setValue] = useState('');
 
     const add = () => {
-        dispatch({ type: 'ADD', payload: ref.current.value });
-        setFiltredValue([ref.current.value, ...store]);
-        ref.current.value = '';
+        dispatch({ type: 'ADD', payload: value });
+        setFiltredValue([value, ...store]);
+        setValue('');
     };
 
-    const handlerInput = () => {
-        const res = store.filter(e =>
-            String(e).includes(ref.current.value.trim()),
-        );
+    const handlerInput = ({ target: { value } }) => {
+        const res = store.filter(e => String(e).includes(value.trim()));
         setFiltredValue(res);
+        setValue(value);
     };
     const handlerKeyUp = event => {
         if (event.key === 'Enter') add();
@@ -30,7 +29,7 @@ function App() {
         <div className="App">
             <NavigationBar>
                 <SearchInput
-                    ref={ref}
+                    value={value}
                     onInput={handlerInput}
                     onKeyUp={handlerKeyUp}
                 />
