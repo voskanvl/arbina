@@ -16,6 +16,7 @@ export const SearchInput = memo(({onInput, onKeyUp, ...props}) => {
     }, [dispatch, currentValue])
     return (
         <input
+            value={currentValue}
             className="bp3-input"
             placeholder="Text input"
             type="text"
