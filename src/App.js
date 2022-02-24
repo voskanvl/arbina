@@ -5,22 +5,6 @@ import './App.css';
 import { AddButton, SearchInput, Table, NavigationBar } from './components';
 
 function App() {
-    // const store = useSelector(state => state.data);
-    // const dispatch = useDispatch();
-    // const [filtredStore, setFiltredValue] = useState(store);
-    // const [value, setValue] = useState('');
-
-    // const add = () => {
-    //     dispatch({ type: 'ADD', payload: value });
-    //     setFiltredValue([value, ...store]);
-    //     setValue('');
-    // };
-
-
-    // const handlerKeyUp = event => {
-    //     if (event.key === 'Enter') add();
-    // };
-
     return (
         <div className="App">
             <NavigationBar>
