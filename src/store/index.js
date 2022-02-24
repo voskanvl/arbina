@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 export const reducer = (state = [], action) => {
     const switchMap = {
         ADD: payload => ({ ...state, data: [payload, ...state.data] }),
+        CURRENT_VALUE: payload => ({ ...state, currentValue: payload })
     };
     if (typeof state === 'undefined') {
         return 0;
@@ -23,6 +24,7 @@ export const store = createStore(
             'Your children were in your holy love',
             'And the precipitation through the bleeding throne.',
         ],
+        currentValue:""
     },
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
         window.__REDUX_DEVTOOLS_EXTENSION__(),
